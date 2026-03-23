@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shrivas Sudharsan — AI Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f; --surface: #111118; --border: #1e1e2e;
+    --accent: #7fffb2; --accent2: #5bc8ff; --accent3: #ff7eb3;
+    --text: #e8e8f0; --muted: #6b6b80; --card: #13131c;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Instrument Sans', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 100; opacity: 0.4; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 3rem; background: rgba(10,10,15,0.9); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: 'DM Mono', monospace; font-size: 0.85rem; color: var(--accent); letter-spacing: 0.08em; text-decoration: none; }
+  .nav-links { display: flex; gap: 0.1rem; list-style: none; }
+  .nav-links a { font-family: 'DM Mono', monospace; font-size: 0.73rem; color: var(--muted); text-decoration: none; letter-spacing: 0.04em; padding: 0.38rem 0.75rem; border-radius: 4px; transition: all 0.2s; cursor: pointer; }
+  .nav-links a:hover, .nav-links a.active { color: var(--text); background: rgba(255,255,255,0.05); }
+
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 3rem 5rem; position: relative; overflow: hidden; }
+  .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(127,255,178,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(127,255,178,0.03) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 100%); }
+  .hero-glow { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(127,255,178,0.06) 0%, transparent 70%); top: 50%; left: 60%; transform: translate(-50%,-50%); pointer-events: none; }
+  .hero-content { max-width: 900px; position: relative; z-index: 2; }
+  .hero-tag { font-family: 'DM Mono', monospace; font-size: 0.78rem; color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+  .hero-tag::before { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
+  h1 { font-family: 'DM Serif Display', serif; font-size: clamp(3.5rem, 7vw, 6rem); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+  h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub { font-size: 1.05rem; color: var(--muted); max-width: 540px; line-height: 1.75; margin-bottom: 2.5rem; }
+  .hero-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 3rem; }
+  .pill { font-family: 'DM Mono', monospace; font-size: 0.71rem; padding: 0.32rem 0.8rem; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); letter-spacing: 0.05em; transition: all 0.2s; }
+  .pill:hover { border-color: var(--accent); color: var(--accent); }
+  .pill.green { border-color: rgba(127,255,178,0.3); color: var(--accent); }
+  .pill.blue  { border-color: rgba(91,200,255,0.3);  color: var(--accent2); }
+  .pill.pink  { border-color: rgba(255,126,179,0.3);  color: var(--accent3); }
+  .hero-cta { display: flex; gap: 1rem; align-items: center; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.72rem 1.6rem; background: var(--accent); color: var(--bg); font-family: 'DM Mono', monospace; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-decoration: none; border-radius: 4px; border: none; cursor: pointer; transition: all 0.2s; }
+  .btn-primary:hover { background: #a0ffcc; transform: translateY(-1px); }
+  .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.72rem 1.4rem; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 0.82rem; letter-spacing: 0.06em; text-decoration: none; border: 1px solid var(--border); border-radius: 4px; transition: all 0.2s; }
+  .btn-ghost:hover { color: var(--text); border-color: var(--muted); }
+
+  .content-wrap { max-width: 1100px; margin: 0 auto; padding: 6rem 3rem; }
+  .section-label { font-family: 'DM Mono', monospace; font-size: 0.74rem; color: var(--accent); letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-label::before { content: ''; display: block; width: 22px; height: 1px; background: var(--accent); }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 3rem; }
+
+  .exp-item { display: grid; grid-template-columns: 185px 1fr; gap: 2rem; padding: 1.75rem 0; border-top: 1px solid var(--border); }
+  .exp-item:last-child { border-bottom: 1px solid var(--border); }
+  .exp-date { font-family: 'DM Mono', monospace; font-size: 0.73rem; color: var(--muted); padding-top: 0.2rem; line-height: 1.5; }
+  .exp-role { font-weight: 600; font-size: 0.98rem; color: var(--text); margin-bottom: 0.2rem; }
+  .exp-org  { font-family: 'DM Mono', monospace; font-size: 0.74rem; color: var(--accent2); margin-bottom: 0.65rem; }
+  .exp-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+  .exp-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.7rem; }
+  .tag { font-family: 'DM Mono', monospace; font-size: 0.67rem; padding: 0.18rem 0.55rem; border-radius: 3px; background: rgba(127,255,178,0.07); color: var(--accent); letter-spacing: 0.04em; }
+  .tag.blue { background: rgba(91,200,255,0.07); color: var(--accent2); }
+  .tag.pink { background: rgba(255,126,179,0.07); color: var(--accent3); }
+  .tag.grey { background: rgba(255,255,255,0.04); color: var(--muted); }
+
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1.2rem; }
+  .project-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.65rem; transition: all 0.25s; position: relative; overflow: hidden; }
+  .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); opacity: 0; transition: opacity 0.25s; }
+  .project-card:hover { border-color: rgba(127,255,178,0.2); transform: translateY(-3px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+  .project-card:hover::before { opacity: 1; }
+  .project-card.blue::before { background: linear-gradient(90deg, var(--accent2), transparent); }
+  .project-card.blue:hover { border-color: rgba(91,200,255,0.2); }
+  .project-card.pink::before { background: linear-gradient(90deg, var(--accent3), transparent); }
+  .project-card.pink:hover { border-color: rgba(255,126,179,0.2); }
+  .project-number { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); margin-bottom: 0.9rem; letter-spacing: 0.06em; }
+  .project-title { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--text); margin-bottom: 0.35rem; line-height: 1.25; }
+  .project-subtitle { font-family: 'DM Mono', monospace; font-size: 0.71rem; color: var(--muted); margin-bottom: 0.9rem; }
+  .project-desc { font-size: 0.862rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.1rem; }
+  .project-metric { font-family: 'DM Mono', monospace; font-size: 0.74rem; color: var(--accent); padding: 0.45rem 0.7rem; background: rgba(127,255,178,0.06); border-radius: 4px; margin-bottom: 1rem; border-left: 2px solid var(--accent); }
+  .project-metric.blue { color: var(--accent2); background: rgba(91,200,255,0.06); border-color: var(--accent2); }
+  .project-metric.pink { color: var(--accent3); background: rgba(255,126,179,0.06); border-color: var(--accent3); }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+  .skill-group { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.4rem; }
+  .skill-group-title { font-family: 'DM Mono', monospace; font-size: 0.7rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.9rem; }
+  .skill-items { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .skill-item { font-family: 'DM Mono', monospace; font-size: 0.71rem; color: var(--muted); padding: 0.28rem 0.6rem; border: 1px solid var(--border); border-radius: 3px; transition: all 0.15s; }
+  .skill-item:hover { color: var(--text); border-color: var(--muted); }
+
+  /* CERT GRID */
+  .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
+  .cert-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem 1.4rem; display: flex; gap: 1rem; align-items: flex-start; transition: all 0.2s; }
+  .cert-card:hover { border-color: rgba(127,255,178,0.15); transform: translateY(-2px); }
+  .cert-card.highlight { border-color: rgba(127,255,178,0.2); }
+  .cert-card.highlight .cert-icon { color: var(--accent); }
+  .cert-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 0.1rem; }
+  .cert-name { font-weight: 600; font-size: 0.88rem; color: var(--text); margin-bottom: 0.15rem; line-height: 1.3; }
+  .cert-issuer { font-family: 'DM Mono', monospace; font-size: 0.69rem; color: var(--accent2); margin-bottom: 0.2rem; }
+  .cert-date { font-family: 'DM Mono', monospace; font-size: 0.67rem; color: var(--muted); }
+
+  .about-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; }
+  .about-stats { display: flex; flex-direction: column; gap: 1.5rem; }
+  .stat-item { border-top: 1px solid var(--border); padding-top: 1.2rem; }
+  .stat-num { font-family: 'DM Serif Display', serif; font-size: 2.4rem; color: var(--accent); line-height: 1; margin-bottom: 0.25rem; }
+  .stat-label { font-size: 0.83rem; color: var(--muted); }
+  .about-text p { font-size: 0.93rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.2rem; }
+  .about-text p strong { color: var(--text); font-weight: 500; }
+
+  .beyond-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.2rem; }
+  .beyond-card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.65rem; transition: all 0.25s; }
+  .beyond-card:hover { border-color: rgba(255,255,255,0.1); transform: translateY(-2px); }
+  .beyond-icon { font-size: 1.4rem; margin-bottom: 0.9rem; }
+  .beyond-title { font-weight: 600; font-size: 0.98rem; color: var(--text); margin-bottom: 0.2rem; }
+  .beyond-sub { font-family: 'DM Mono', monospace; font-size: 0.71rem; color: var(--muted); margin-bottom: 0.7rem; }
+  .beyond-desc { font-size: 0.862rem; color: var(--muted); line-height: 1.65; }
+
+  /* CONTACT PAGE */
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contact-intro { font-size: 1rem; color: var(--muted); line-height: 1.8; margin-bottom: 2.5rem; max-width: 480px; }
+  .contact-intro strong { color: var(--text); }
+  .contact-links { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+    text-decoration: none; transition: all 0.25s; position: relative; overflow: hidden;
+  }
+  .contact-link::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), transparent); opacity: 0; transition: opacity 0.25s; }
+  .contact-link:hover { border-color: rgba(127,255,178,0.25); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
+  .contact-link:hover::before { opacity: 1; }
+  .contact-link.blue::before { background: linear-gradient(90deg, var(--accent2), transparent); }
+  .contact-link.blue:hover { border-color: rgba(91,200,255,0.25); }
+  .contact-link.pink::before { background: linear-gradient(90deg, var(--accent3), transparent); }
+  .contact-link.pink:hover { border-color: rgba(255,126,179,0.25); }
+  .contact-link-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .contact-link-label { font-weight: 600; font-size: 0.95rem; color: var(--text); margin-bottom: 0.15rem; }
+  .contact-link-value { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--muted); }
+  .contact-link-arrow { margin-left: auto; font-size: 1rem; color: var(--muted); transition: transform 0.2s; }
+  .contact-link:hover .contact-link-arrow { transform: translate(3px, -3px); }
+
+  .contact-note { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.75rem; }
+  .contact-note-title { font-weight: 600; font-size: 0.95rem; color: var(--text); margin-bottom: 0.75rem; }
+  .contact-note p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; margin-bottom: 0.75rem; }
+  .contact-note p:last-child { margin-bottom: 0; }
+
+  footer { border-top: 1px solid var(--border); padding: 2.25rem 3rem; display: flex; align-items: center; justify-content: space-between; }
+  .footer-left { font-family: 'DM Mono', monospace; font-size: 0.73rem; color: var(--muted); }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { font-family: 'DM Mono', monospace; font-size: 0.73rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--accent); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-content > * { animation: fadeUp 0.7s ease forwards; opacity: 0; }
+  .hero-tag { animation-delay: 0.1s; } h1 { animation-delay: 0.2s; } .hero-sub { animation-delay: 0.3s; } .hero-pills { animation-delay: 0.4s; } .hero-cta { animation-delay: 0.5s; }
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.25rem; }
+    .nav-links a { padding: 0.35rem 0.4rem; font-size: 0.62rem; }
+    .hero { padding: 7rem 1.5rem 4rem; }
+    .content-wrap { padding: 4rem 1.5rem; }
+    .exp-item { grid-template-columns: 1fr; gap: 0.4rem; }
+    .about-layout, .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    footer { flex-direction: column; gap: 1rem; padding: 2rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo" onclick="return showPage('home',this)">shrivas.dev</a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="return showPage('home',this)" class="active">home</a></li>
+    <li><a href="#" onclick="return showPage('experience',this)">experience</a></li>
+    <li><a href="#" onclick="return showPage('projects',this)">projects</a></li>
+    <li><a href="#" onclick="return showPage('skills',this)">skills</a></li>
+    <li><a href="#" onclick="return showPage('beyond',this)">beyond the code</a></li>
+    <li><a href="#" onclick="return showPage('contact',this)">contact</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HOME ══ -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-tag">AI Researcher & Engineer · UC San Diego '29</div>
+      <h1>Building intelligent<br>systems that <em>learn</em></h1>
+      <p class="hero-sub">Freshman studying Artificial Intelligence at UC San Diego (GPA 4.0), working across machine learning research, embedded inference, computer vision, and full-stack AI systems.</p>
+      <div class="hero-pills">
+        <span class="pill green">Active Learning</span><span class="pill green">EMG / Biosignals</span>
+        <span class="pill blue">Computer Vision</span><span class="pill blue">LLM Fine-Tuning</span>
+        <span class="pill pink">RAG Systems</span><span class="pill pink">Edge Deployment</span>
+        <span class="pill">PyTorch</span><span class="pill">React.js + Flask</span>
+      </div>
+      <div class="hero-cta">
+        <button class="btn-primary" onclick="showPage('projects',null)">View Projects ↓</button>
+        <button class="btn-ghost" onclick="showPage('contact',null)">Get in Touch ↗</button>
+      </div>
+    </div>
+  </div>
+  <div class="content-wrap">
+    <div class="section-label">About</div>
+    <h2 class="section-title">The person behind<br>the models</h2>
+    <div class="about-layout">
+      <div class="about-stats reveal">
+        <div class="stat-item"><div class="stat-num">4.0</div><div class="stat-label">GPA at UC San Diego</div></div>
+        <div class="stat-item"><div class="stat-num">6+</div><div class="stat-label">Research roles & internships</div></div>
+        <div class="stat-item"><div class="stat-num">~95%</div><div class="stat-label">Peak accuracy — EMG gesture classifier</div></div>
+        <div class="stat-item"><div class="stat-num">15+</div><div class="stat-label">Certifications across ML, AI & data science</div></div>
+      </div>
+      <div class="about-text reveal">
+        <p>I'm a first-year <strong>Artificial Intelligence student at UC San Diego</strong>, working at the intersection of ML research, applied systems, and real-world deployment. From bioacoustic classification pipelines to EMG-based gesture interfaces, I care about AI that actually runs in the world — not just in notebooks.</p>
+        <p>My current research spans <strong>active learning for bioacoustic species identification</strong> (Engineers 4 Exploration), <strong>EMG-based ASL gesture recognition</strong> for neurotechnology (Triton NeuroTech), and <strong>autonomous drone systems in C++</strong> (TritonUAS). I also mentor students on AI-driven projects through Curious Cardinals.</p>
+        <p>Before college I participated in ML research at the <strong>Cambridge Centre for International Research</strong> alongside Dr. Shadi Ghiasi, deployed a <strong>Raspberry Pi fire-detection system</strong> with a UC Irvine CS professor, studied <strong>neuroscience at UCLA</strong>, and completed ML coursework through <strong>Stanford and Coursera</strong>.</p>
+        <p>Always looking for research collaborations and internship opportunities in ML systems, applied AI, and edge deployment.</p>
+      </div>
+    </div>
+  </div>
+  <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '29</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
+</div>
+
+<!-- ══ EXPERIENCE ══ -->
+<div id="page-experience" class="page">
+  <div class="content-wrap">
+    <div class="section-label">Experience</div>
+    <h2 class="section-title">Where I've worked<br>& researched</h2>
+    <div>
+      <div class="exp-item reveal"><div class="exp-date">Jan 2026 — Present</div><div><div class="exp-role">Active Learning Research — Acoustic Species ID</div><div class="exp-org">UC San Diego: Engineers 4 Exploration</div><div class="exp-desc">Building an active learning pipeline for multi-label bioacoustic classification using BirdNET transformer embeddings with LightGBM, Random Forest, SVM, and MLP classifiers. Achieved ~90% precision on dominant species classes. Applying uncertainty-based sampling to maximize model efficiency under limited annotation budgets across imbalanced long-tail distributions.</div><div class="exp-tags"><span class="tag">Active Learning</span><span class="tag">BirdNET</span><span class="tag">LightGBM</span><span class="tag">Multi-label Classification</span></div></div></div>
+      <div class="exp-item reveal"><div class="exp-date">Jan 2026 — Present</div><div><div class="exp-role">NeuroTech ML Research — EMG</div><div class="exp-org">Triton NeuroTech at UC San Diego</div><div class="exp-desc">Engineering EMG-based ASL gesture recognition models translating raw muscle biosignals into structured linguistic outputs. Extracted time-domain (RMS, MAV) and frequency-domain spectral features for robust multi-class classification. Achieved ~95% test accuracy with an optimized Random Forest classifier. Preparing pipeline for real-time edge deployment with low-latency inference.</div><div class="exp-tags"><span class="tag">EMG Signal Processing</span><span class="tag">ASL Recognition</span><span class="tag pink">Neurotechnology</span><span class="tag">Edge Deployment</span></div></div></div>
+      <div class="exp-item reveal"><div class="exp-date">Jan 2026 — Present</div><div><div class="exp-role">Software Team Member — Autonomous Drones</div><div class="exp-org">TritonUAS · La Jolla, CA</div><div class="exp-desc">Developing low-level C++ communication between onboard drone systems and ground sensor computers. Implementing inter-process and network communication protocols for reliable data exchange across distributed robotic components. Writing performance-critical code for real-time sensing, resource management, and autonomous systems.</div><div class="exp-tags"><span class="tag blue">C++</span><span class="tag blue">IPC / Networking</span><span class="tag blue">Autonomous Systems</span><span class="tag blue">Real-time Systems</span></div></div></div>
+      <div class="exp-item reveal"><div class="exp-date">Mar 2026</div><div><div class="exp-role">Computer Vision Intern</div><div class="exp-org">Intuizi · Remote</div><div class="exp-desc">Trained a YOLO-based satellite imagery detection model achieving 92.5% accuracy on swimming pool identification for large-scale geospatial analysis. Improved model robustness by annotating ambiguous visual edge cases to reduce false positive rate in production inference.</div><div class="exp-tags"><span class="tag blue">YOLO</span><span class="tag blue">Computer Vision</span><span class="tag blue">Satellite Imagery</span><span class="tag blue">Geospatial ML</span></div></div></div>
+      <div class="exp-item reveal"><div class="exp-date">Jan 2026 — Present</div><div><div class="exp-role">AI Mentor</div><div class="exp-org">Curious Cardinals · Remote</div><div class="exp-desc">Mentoring students on AI-driven coding projects from concept to working ML pipeline. Teaching ML fundamentals, model design, and debugging. Helping students translate abstract ideas into functional systems through iteration and experimentation.</div><div class="exp-tags"><span class="tag grey">AI Education</span><span class="tag grey">Mentoring</span><span class="tag grey">ML Systems</span></div></div></div>
+      <div class="exp-item reveal"><div class="exp-date">Dec 2025 — Jan 2026</div><div><div class="exp-role">Machine Learning Researcher</div><div class="exp-org">RapidFire AI · Remote</div><div class="exp-desc">Fine-tuned GPT-2 with LoRA adapters via SFT for customer-support generation (ROUGE-L=0.056, eval loss=1.15). Built a RAG pipeline on the FiQA financial dataset, optimizing chunk size, overlap, and reranking to achieve MRR=65.5%. Designed parallelized hyperparameter search with real-time metric visualization and early stopping.</div><div class="exp-tags"><span class="tag">LoRA / SFT</span><span class="tag">RAG</span><span class="tag">GPT-2</span><span class="tag">LLM Fine-Tuning</span></div></div></div>
+      <div class="exp-item reveal"><div class="exp-date">Jun – Aug 2024</div><div><div class="exp-role">Artificial Intelligence Intern</div><div class="exp-org">Photon Insights · Hybrid</div><div class="exp-desc">Conducted interview-driven user research and NLP-based sentiment analysis to identify product gaps. Recommended integration of a proactive AI forecasting feature. Benchmarked ML algorithms across multi-year financial time-series, competitor metrics, and news-driven datasets.</div><div class="exp-tags"><span class="tag">NLP</span><span class="tag">Sentiment Analysis</span><span class="tag">Financial ML</span></div></div></div>
+      <div class="exp-item reveal"><div class="exp-date">May – Aug 2024</div><div><div class="exp-role">Embedded Systems Research</div><div class="exp-org">Pioneer Academics × UC Irvine CS Faculty</div><div class="exp-desc">Collaborated with a UC Irvine CS professor to engineer a smart fire-detection camera system. Trained YOLO-based networks achieving 90.2% accuracy on fire and 85.7% on smoke. Deployed end-to-end on Raspberry Pi with on-device inference and IoT-based local alert transmission pipeline.</div><div class="exp-tags"><span class="tag">Embedded Inference</span><span class="tag">Raspberry Pi</span><span class="tag">IoT</span><span class="tag">YOLO</span></div></div></div>
+      <div class="exp-item reveal"><div class="exp-date">Jun – Dec 2023</div><div><div class="exp-role">ML Research Program</div><div class="exp-org">Cambridge Centre for International Research</div><div class="exp-desc">Participated in a formal ML research program alongside Dr. Shadi Ghiasi, a senior AI research specialist. Authored a research paper applying machine learning to ECG-based diabetes detection. Compared 16+ classical and ensemble models, improving Random Forest precision to 87.5% through feature engineering and signal processing. <em style="color:var(--muted);font-size:0.82rem;">(Academic research program — not a peer-reviewed publication.)</em></div><div class="exp-tags"><span class="tag grey">ECG Features</span><span class="tag grey">Healthcare AI</span><span class="tag grey">Feature Engineering</span></div></div></div>
+    </div>
+  </div>
+  <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '29</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
+</div>
+
+<!-- ══ PROJECTS ══ -->
+<div id="page-projects" class="page">
+  <div class="content-wrap">
+    <div class="section-label">Projects</div>
+    <h2 class="section-title">Things I've built</h2>
+    <div class="projects-grid">
+      <div class="project-card reveal"><div class="project-number">01 — MULTIMODAL AI</div><div class="project-title">Multimodal AI Reading Assistant</div><div class="project-subtitle">StartupIncubator UCSD · Feb 2026</div><div class="project-desc">Chrome extension combining real-time eye-tracking gaze signals with an event-driven LLM + TTS pipeline. Gaze-to-DOM coordinate mapping fires contextual explanations based on exactly what you're reading. Debounce logic and async optimization minimize unnecessary API calls.</div><div class="project-metric">ElevenLabs TTS · Gaze-to-DOM mapping · Async optimization</div><div class="exp-tags"><span class="tag">Eye Tracking</span><span class="tag">LLM</span><span class="tag">Chrome Extension</span><span class="tag">TTS</span><span class="tag">JavaScript</span></div></div>
+      <div class="project-card blue reveal"><div class="project-number">02 — LLM SYSTEMS</div><div class="project-title">LLM Fine-Tuning & RAG Pipeline</div><div class="project-subtitle">RapidFire AI · Dec 2025 – Jan 2026</div><div class="project-desc">Fine-tuned GPT-2 with LoRA adapters via SFT for customer-support generation. Built a complete RAG pipeline on the FiQA financial QA dataset with optimized chunking, overlap, and reranking. Parallelized hyperparameter search with early stopping across SFT and RAG experiments.</div><div class="project-metric blue">ROUGE-L=0.056 · eval loss=1.15 · MRR=65.5%</div><div class="exp-tags"><span class="tag blue">GPT-2</span><span class="tag blue">LoRA / SFT</span><span class="tag blue">RAG</span><span class="tag blue">FiQA</span><span class="tag blue">PyTorch</span></div></div>
+      <div class="project-card pink reveal"><div class="project-number">03 — FULL-STACK</div><div class="project-title">TritonHub Academic Dashboard</div><div class="project-subtitle">SanD Hacks · Jan 2026</div><div class="project-desc">Full-stack platform aggregating Canvas LMS and Gmail into a unified academic dashboard. React.js frontend with dynamic state management. Flask-based API with OAuth authentication and Supabase backend handling multi-service data ingestion.</div><div class="project-metric pink">React.js · Flask · Supabase · OAuth · RESTful APIs</div><div class="exp-tags"><span class="tag pink">React.js</span><span class="tag pink">Flask</span><span class="tag pink">Supabase</span><span class="tag pink">Canvas API</span><span class="tag pink">Gmail API</span></div></div>
+      <div class="project-card reveal"><div class="project-number">04 — EMBEDDED AI</div><div class="project-title">Smart Fire & Smoke Detection</div><div class="project-subtitle">Pioneer Academics × UC Irvine · 2024</div><div class="project-desc">YOLO-based neural network deployed end-to-end on a Raspberry Pi for real-time fire and smoke detection. Full IoT alert pipeline notifies local residents on detection. Developed in collaboration with a UC Irvine CS professor.</div><div class="project-metric">Fire: 90.2% · Smoke: 85.7% · On-device inference</div><div class="exp-tags"><span class="tag">YOLO</span><span class="tag">Raspberry Pi</span><span class="tag">IoT</span><span class="tag">Edge Inference</span></div></div>
+      <div class="project-card blue reveal"><div class="project-number">05 — HEALTHCARE ML</div><div class="project-title">ECG-Based Diabetes Detection</div><div class="project-subtitle">Cambridge Centre for International Research · 2023</div><div class="project-desc">Comparative ML study across 16+ models for diabetes detection using ECG-derived features, conducted through a research program with Dr. Shadi Ghiasi. Applied feature engineering and signal processing to benchmark and optimize classical and ensemble methods.</div><div class="project-metric blue">Random Forest precision → 87.5% · 16+ models</div><div class="exp-tags"><span class="tag blue">ECG Features</span><span class="tag blue">Random Forest</span><span class="tag blue">Healthcare AI</span><span class="tag blue">Signal Processing</span></div></div>
+    </div>
+  </div>
+  <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '29</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
+</div>
+
+<!-- ══ SKILLS ══ -->
+<div id="page-skills" class="page">
+  <div class="content-wrap">
+    <div class="section-label">Education & Skills</div>
+    <h2 class="section-title">Education, skills<br>& certifications</h2>
+
+    <!-- Education -->
+    <div style="margin-bottom:3rem;">
+      <div class="exp-item reveal"><div class="exp-date">Aug 2025 – Jun 2029</div><div><div class="exp-role">B.S. Artificial Intelligence · GPA 4.0</div><div class="exp-org">UC San Diego</div><div class="exp-desc">Coursework: Machine Learning, Discrete Mathematics, Calculus, Python, Data Structures</div></div></div>
+      <div class="exp-item reveal"><div class="exp-date">Jun – Aug 2024</div><div><div class="exp-role">Summer Program in Neuroscience</div><div class="exp-org">UCLA</div><div class="exp-desc">Studied brain anatomy and neurological disease with faculty mentorship. Explored AI-assisted stroke detection — directly shaped interest in neurotechnology.</div></div></div>
+    </div>
+
+    <!-- Certifications — highlighted -->
+    <div class="section-label" style="margin-bottom:1rem;">Certifications</div>
+    <div class="cert-grid">
+      <!-- Top-tier / recent -->
+      <div class="cert-card highlight reveal"><div class="cert-icon">🤖</div><div><div class="cert-name">SFT Certification</div><div class="cert-issuer">RapidFire AI</div><div class="cert-date">Jan 2026 · Supervised Fine-Tuning</div></div></div>
+      <div class="cert-card highlight reveal"><div class="cert-icon">🔍</div><div><div class="cert-name">RAG Certification</div><div class="cert-issuer">RapidFire AI</div><div class="cert-date">Jan 2026 · Retrieval-Augmented Generation</div></div></div>
+      <div class="cert-card highlight reveal"><div class="cert-icon">🎓</div><div><div class="cert-name">Machine Learning Specialization</div><div class="cert-issuer">Stanford University</div><div class="cert-date">Aug 2023 · ID: TMU42NJ9XKQJ</div></div></div>
+      <div class="cert-card reveal"><div class="cert-icon">📊</div><div><div class="cert-name">Supervised ML: Regression & Classification</div><div class="cert-issuer">Coursera</div><div class="cert-date">May 2023 · ID: H43JT6Y7F5SM</div></div></div>
+      <div class="cert-card reveal"><div class="cert-icon">🧠</div><div><div class="cert-name">Advanced Learning Algorithms</div><div class="cert-issuer">Coursera</div><div class="cert-date">Jul 2023 · ID: YRDLUKRXXJ6U</div></div></div>
+      <div class="cert-card reveal"><div class="cert-icon">🔄</div><div><div class="cert-name">Unsupervised Learning, Recommenders & RL</div><div class="cert-issuer">Coursera</div><div class="cert-date">Aug 2023 · ID: H43JT6Y7F5SM</div></div></div>
+      <div class="cert-card reveal"><div class="cert-icon">🏥</div><div><div class="cert-name">Foundations of Healthcare Systems Engineering</div><div class="cert-issuer">Coursera</div><div class="cert-date">May 2023 · ID: N6BQ5TS7Q5S3</div></div></div>
+      <!-- IBM Data Science -->
+      <div class="cert-card reveal"><div class="cert-icon">🐍</div><div><div class="cert-name">Python for Everybody Specialization</div><div class="cert-issuer">University of Michigan</div><div class="cert-date">Oct 2020</div></div></div>
+      <div class="cert-card reveal"><div class="cert-icon">📈</div><div><div class="cert-name">Machine Learning with Python</div><div class="cert-issuer">IBM Skills Network</div><div class="cert-date">Aug 2020</div></div></div>
+      <div class="cert-card reveal"><div class="cert-icon">📉</div><div><div class="cert-name">Data Analysis with Python</div><div class="cert-issuer">IBM Skills Network</div><div class="cert-date">Jul 2020</div></div></div>
+      <div class="cert-card reveal"><div class="cert-icon">📊</div><div><div class="cert-name">Data Visualization with Python</div><div class="cert-issuer">IBM Skills Network</div><div class="cert-date">Jul 2020</div></div></div>
+      <div class="cert-card reveal"><div class="cert-icon">🐍</div><div><div class="cert-name">Python for Data Science, AI & Development</div><div class="cert-issuer">IBM Skills Network</div><div class="cert-date">Jun 2020</div></div></div>
+      <div class="cert-card reveal"><div class="cert-icon">🔬</div><div><div class="cert-name">Data Science Methodology</div><div class="cert-issuer">IBM Skills Network</div><div class="cert-date">May 2020</div></div></div>
+      <div class="cert-card reveal"><div class="cert-icon">🛠️</div><div><div class="cert-name">Tools for Data Science</div><div class="cert-issuer">IBM Skills Network</div><div class="cert-date">May 2020</div></div></div>
+      <div class="cert-card reveal"><div class="cert-icon">💡</div><div><div class="cert-name">What is Data Science?</div><div class="cert-issuer">IBM Skills Network</div><div class="cert-date">May 2020</div></div></div>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="section-label" style="margin-bottom:1rem; margin-top:1rem;">Technical Skills</div>
+    <div class="skills-grid">
+      <div class="skill-group reveal"><div class="skill-group-title">Languages</div><div class="skill-items"><span class="skill-item">Python</span><span class="skill-item">C++</span><span class="skill-item">Java</span><span class="skill-item">JavaScript</span><span class="skill-item">HTML/CSS</span></div></div>
+      <div class="skill-group reveal"><div class="skill-group-title">ML / Deep Learning</div><div class="skill-items"><span class="skill-item">PyTorch</span><span class="skill-item">TensorFlow</span><span class="skill-item">Scikit-learn</span><span class="skill-item">LightGBM</span><span class="skill-item">OpenCV</span><span class="skill-item">YOLO</span><span class="skill-item">BirdNET</span></div></div>
+      <div class="skill-group reveal"><div class="skill-group-title">AI Techniques</div><div class="skill-items"><span class="skill-item">Active Learning</span><span class="skill-item">RAG</span><span class="skill-item">LoRA / SFT</span><span class="skill-item">EMG Signal Processing</span><span class="skill-item">Embedded Inference</span><span class="skill-item">Edge Deployment</span><span class="skill-item">Multimodal AI</span></div></div>
+      <div class="skill-group reveal"><div class="skill-group-title">Web & Systems</div><div class="skill-items"><span class="skill-item">React.js</span><span class="skill-item">Flask</span><span class="skill-item">REST APIs</span><span class="skill-item">Supabase</span><span class="skill-item">Raspberry Pi</span><span class="skill-item">Chrome Extensions</span><span class="skill-item">C++ IPC</span></div></div>
+      <div class="skill-group reveal"><div class="skill-group-title">Data & Tools</div><div class="skill-items"><span class="skill-item">NumPy</span><span class="skill-item">Pandas</span><span class="skill-item">Matplotlib</span><span class="skill-item">Git</span><span class="skill-item">SQL</span></div></div>
+    </div>
+  </div>
+  <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '29</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
+</div>
+
+<!-- ══ BEYOND ══ -->
+<div id="page-beyond" class="page">
+  <div class="content-wrap">
+    <div class="section-label">Beyond the Code</div>
+    <h2 class="section-title">Leadership, community,<br>& everything else</h2>
+    <p style="color:var(--muted);font-size:0.93rem;max-width:580px;margin-bottom:3rem;line-height:1.75;">AI is what I do technically — but this is what shaped how I think, lead, and show up for people.</p>
+    <div class="beyond-grid">
+      <div class="beyond-card reveal"><div class="beyond-icon">🏆</div><div class="beyond-title">National Winner — FlexFactor</div><div class="beyond-sub">NextFlex · Jun 2023</div><div class="beyond-desc">Led team to a national victory out of 350+ participating teams. Presented a full technology product design, business model, and pitch deck to government officials, industry leaders, and academics. Recognized for innovation, teamwork, and entrepreneurial thinking.</div></div>
+      <div class="beyond-card reveal"><div class="beyond-icon">🧠</div><div class="beyond-title">Neuroscience Summer Program</div><div class="beyond-sub">UCLA · Summer 2024</div><div class="beyond-desc">Studied brain anatomy, neurological disease, and AI-assisted stroke detection with UCLA faculty mentorship. Directly shaped interest in neurotechnology — which led to EMG/ASL research at Triton NeuroTech.</div></div>
+      <div class="beyond-card reveal"><div class="beyond-icon">🌲</div><div class="beyond-title">Co-Founder — Adopt a Park</div><div class="beyond-sub">Feb 2022 – Jun 2025 · 3+ years</div><div class="beyond-desc">Co-founded and led a community environmental initiative organizing volunteer efforts and park maintenance at Glenview Park, San Jose over more than three years.</div></div>
+      <div class="beyond-card reveal"><div class="beyond-icon">⚜️</div><div class="beyond-title">Patrol Leader — Boy Scouts of America</div><div class="beyond-sub">Aug 2018 – Jun 2025 · Star Scout · ~7 years</div><div class="beyond-desc">Served as Patrol Leader coordinating and mentoring teams across multi-day service and leadership activities. Led large-scale community service projects built around teamwork, resilience, and responsibility.</div></div>
+      <div class="beyond-card reveal"><div class="beyond-icon">🤝</div><div class="beyond-title">AI Mentor — Curious Cardinals</div><div class="beyond-sub">Jan 2026 – Present</div><div class="beyond-desc">Mentoring students on AI-driven projects from concept to working implementation. Teaching ML fundamentals while helping students debug, iterate, and think like engineers.</div></div>
+      <div class="beyond-card reveal"><div class="beyond-icon">📜</div><div class="beyond-title">Languages</div><div class="beyond-sub">English (native) · Sanskrit (working proficiency)</div><div class="beyond-desc">Native fluency in English. Working proficiency in Sanskrit — one of the world's oldest structured languages with deep connections to formal grammar and computational linguistics.</div></div>
+    </div>
+  </div>
+  <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '29</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
+</div>
+
+<!-- ══ CONTACT ══ -->
+<div id="page-contact" class="page">
+  <div class="content-wrap">
+    <div class="section-label">Contact</div>
+    <h2 class="section-title">Let's work<br>together</h2>
+    <div class="contact-layout">
+      <div>
+        <p class="contact-intro">I'm always open to <strong>research collaborations</strong>, <strong>internship opportunities</strong>, and conversations about ML systems, applied AI, and edge deployment. Feel free to reach out through any of the channels below.</p>
+        <div class="contact-links">
+          <a href="mailto:sudharsan.shrivas@gmail.com" class="contact-link">
+            <span class="contact-link-icon">✉️</span>
+            <div><div class="contact-link-label">Email</div><div class="contact-link-value">sudharsan.shrivas@gmail.com</div></div>
+            <span class="contact-link-arrow">↗</span>
+          </a>
+          <a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank" class="contact-link blue">
+            <span class="contact-link-icon">💼</span>
+            <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-value">linkedin.com/in/shrivas-sudharsan-a20398255</div></div>
+            <span class="contact-link-arrow">↗</span>
+          </a>
+          <a href="https://github.com/shrivassudharsan1" target="_blank" class="contact-link pink">
+            <span class="contact-link-icon">🐙</span>
+            <div><div class="contact-link-label">GitHub</div><div class="contact-link-value">github.com/shrivassudharsan1</div></div>
+            <span class="contact-link-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+      <div class="contact-note reveal">
+        <div class="contact-note-title">What I'm looking for</div>
+        <p>I'm currently a freshman at UC San Diego and actively seeking <strong style="color:var(--text);">summer 2026 internships</strong> in ML engineering, AI research, or applied data science roles.</p>
+        <p>I'm especially interested in teams working on <strong style="color:var(--text);">real-world ML deployment</strong>, <strong style="color:var(--text);">multimodal systems</strong>, <strong style="color:var(--text);">edge AI</strong>, or <strong style="color:var(--text);">biosignal processing</strong>.</p>
+        <p>For research collaborations, I'm open to conversations at any stage — from early ideas to active projects looking for a contributor.</p>
+      </div>
+    </div>
+  </div>
+  <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '29</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
+</div>
+
+<script>
+  function showPage(name, el) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    if (el) el.classList.add('active');
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+      document.querySelectorAll('#page-' + name + ' .reveal').forEach((el, i) => {
+        el.classList.remove('visible');
+        setTimeout(() => el.classList.add('visible'), i * 45);
+      });
+    }, 60);
+    return false;
+  }
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => { if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 55); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('#page-home .reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
