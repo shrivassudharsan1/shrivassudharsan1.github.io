@@ -250,23 +250,42 @@
     <div class="section-label">Projects</div>
     <h2 class="section-title">Things I've built</h2>
     <div class="projects-grid">
-      <div class="project-card reveal"><div class="project-number">01 — MULTIMODAL AI</div><div class="project-title">Multimodal AI Reading Assistant</div><div class="project-subtitle">StartupIncubator UCSD · Feb 2026</div><div class="project-desc">Chrome extension combining real-time eye-tracking gaze signals with an event-driven LLM + TTS pipeline. Gaze-to-DOM coordinate mapping fires contextual explanations based on exactly what you're reading. Debounce logic and async optimization minimize unnecessary API calls.</div><div class="project-metric">ElevenLabs TTS · Gaze-to-DOM mapping · Async optimization</div><div class="exp-tags"><span class="tag">Eye Tracking</span><span class="tag">LLM</span><span class="tag">Chrome Extension</span><span class="tag">TTS</span><span class="tag">JavaScript</span></div></div>
+
+      <!-- 01 — MULTIMODAL AI -->
+      <div class="project-card reveal">
+        <div class="project-number">01 — MULTIMODAL AI</div>
+        <div class="project-title">Multimodal AI Reading Assistant</div>
+        <div class="project-subtitle">StartupIncubator UCSD · Feb 2026</div>
+
+        <img src="assets/multimodal-preview.png.jpeg" alt="Multimodal AI Reading Assistant screenshot" style="width:100%;border-radius:8px;margin:12px 0 6px;border:1px solid rgba(255,255,255,0.08);">
+
+        <div style="margin:10px 0 8px;">
+          <div style="font-size:0.7rem;letter-spacing:0.08em;color:rgba(255,255,255,0.4);font-weight:600;margin-bottom:6px;">HOW IT WORKS</div>
+          <video controls muted playsinline style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:#000;">
+            <source src="assets/multimodal-demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <div class="project-desc">Chrome extension combining real-time eye-tracking gaze signals with an event-driven LLM + TTS pipeline. Gaze-to-DOM coordinate mapping fires contextual explanations based on exactly what you're reading. Debounce logic and async optimization minimize unnecessary API calls.</div>
+        <div class="project-metric">ElevenLabs TTS · Gaze-to-DOM mapping · Async optimization</div>
+        <div class="exp-tags"><span class="tag">Eye Tracking</span><span class="tag">LLM</span><span class="tag">Chrome Extension</span><span class="tag">TTS</span><span class="tag">JavaScript</span></div>
+      </div>
+
+      <!-- 02 — LLM SYSTEMS -->
       <div class="project-card blue reveal"><div class="project-number">02 — LLM SYSTEMS</div><div class="project-title">LLM Fine-Tuning & RAG Pipeline</div><div class="project-subtitle">RapidFire AI · Dec 2025 – Jan 2026</div><div class="project-desc">Fine-tuned GPT-2 with LoRA adapters via SFT for customer-support generation. Built a complete RAG pipeline on the FiQA financial QA dataset with optimized chunking, overlap, and reranking. Parallelized hyperparameter search with early stopping across SFT and RAG experiments.</div><div class="project-metric blue">ROUGE-L=0.056 · eval loss=1.15 · MRR=65.5%</div><div class="exp-tags"><span class="tag blue">GPT-2</span><span class="tag blue">LoRA / SFT</span><span class="tag blue">RAG</span><span class="tag blue">FiQA</span><span class="tag blue">PyTorch</span></div></div>
 
-      <!-- ══ TRITONHUB — screenshot + video + live link ══ -->
+      <!-- 03 — TRITONHUB -->
       <div class="project-card pink reveal">
         <div class="project-number">03 — FULL-STACK</div>
         <div class="project-title">TritonHub Academic Dashboard</div>
         <div class="project-subtitle">SanD Hacks · Jan 2026</div>
 
+        <img src="assets/tritonhub-preview.png.jpeg" alt="TritonHub dashboard" style="width:100%;border-radius:8px;margin:12px 0 6px;border:1px solid rgba(255,255,255,0.08);">
+
         <div style="margin:10px 0 8px;">
           <div style="font-size:0.7rem;letter-spacing:0.08em;color:rgba(255,100,150,0.7);font-weight:600;margin-bottom:6px;">HOW IT WORKS</div>
-          <video
-            controls
-            muted
-            playsinline
-            style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:#000;"
-          >
+          <video controls muted playsinline style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:#000;">
             <source src="assets/tritonhub-demo.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
@@ -280,8 +299,12 @@
         </div>
       </div>
 
+      <!-- 04 — EMBEDDED AI -->
       <div class="project-card reveal"><div class="project-number">04 — EMBEDDED AI</div><div class="project-title">Smart Fire & Smoke Detection</div><div class="project-subtitle">Pioneer Academics × UC Irvine · 2024</div><div class="project-desc">YOLO-based neural network deployed end-to-end on a Raspberry Pi for real-time fire and smoke detection. Full IoT alert pipeline notifies local residents on detection. Developed in collaboration with a UC Irvine CS professor.</div><div class="project-metric">Fire: 90.2% · Smoke: 85.7% · On-device inference</div><div class="exp-tags"><span class="tag">YOLO</span><span class="tag">Raspberry Pi</span><span class="tag">IoT</span><span class="tag">Edge Inference</span></div></div>
+
+      <!-- 05 — HEALTHCARE ML -->
       <div class="project-card blue reveal"><div class="project-number">05 — HEALTHCARE ML</div><div class="project-title">ECG-Based Diabetes Detection</div><div class="project-subtitle">Cambridge Centre for International Research · 2023</div><div class="project-desc">Comparative ML study across 16+ models for diabetes detection using ECG-derived features, conducted through a research program with Dr. Shadi Ghiasi. Applied feature engineering and signal processing to benchmark and optimize classical and ensemble methods.</div><div class="project-metric blue">Random Forest precision → 87.5% · 16+ models</div><div class="exp-tags"><span class="tag blue">ECG Features</span><span class="tag blue">Random Forest</span><span class="tag blue">Healthcare AI</span><span class="tag blue">Signal Processing</span></div></div>
+
     </div>
   </div>
   <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '29</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
