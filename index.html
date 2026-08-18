@@ -219,7 +219,7 @@
         <button class="btn-ghost" onclick="showPage('contact',null)">Get in Touch ↗</button>
       </div>
         </div>
-    <div style="flex:1;display:flex;align-items:center;justify-content:center;padding-right:60px;position:relative;z-index:2;"><img src="assets/profile.jpg" alt="Shrivas Sudharsan" style="width:320px;height:320px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid #7fffb2;box-shadow:0 0 40px rgba(127,255,178,0.25),0 0 80px rgba(127,255,178,0.1);"></div>
+    <img src="assets/profile.jpg" alt="Shrivas Sudharsan" style="width:320px;height:320px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid #7fffb2;box-shadow:0 0 40px rgba(127,255,178,0.25),0 0 80px rgba(127,255,178,0.1);">
   </div>
   <div class="content-wrap">
     <div class="section-label">About</div>
@@ -294,7 +294,26 @@
       <div class="project-card blue reveal"><div class="project-number">02 — LLM SYSTEMS</div><div class="project-title">LLM Fine-Tuning & RAG Pipeline</div><div class="project-subtitle">RapidFire AI · Dec 2025 – Jan 2026</div><div class="project-desc">Fine-tuned GPT-2 with LoRA adapters via SFT for customer-support generation. Built a complete RAG pipeline on the FiQA financial QA dataset with optimized chunking, overlap, and reranking. Parallelized hyperparameter search with early stopping across SFT and RAG experiments.</div><div class="project-metric blue">ROUGE-L=0.056 · eval loss=1.15 · MRR=65.5%</div><div class="exp-tags"><span class="tag blue">GPT-2</span><span class="tag blue">LoRA / SFT</span><span class="tag blue">RAG</span><span class="tag blue">FiQA</span><span class="tag blue">PyTorch</span></div></div>
 
       <!-- 03 — Autonomous CI/CD Repair Agent -->
-      <div class="project-card blue reveal"><div class="project-number">03 — AGENTIC AI</div><div class="project-title">Autonomous CI/CD Repair Agent</div><div class="project-subtitle">Personal Project · Jun 2026 – Present</div><div class="project-desc">End-to-end agentic pipeline: GitHub Actions test failures trigger a FastAPI webhook, which feeds failing logs to an LLM that generates a patch, applies it, reruns tests, and opens a fix PR automatically — a fully autonomous agent with no human in the loop. Currently extending with structured repository-context retrieval as a precursor to multi-agent orchestration.</div><div class="project-metric blue">63% relative improvement · 14% → 23% pass rate</div><div class="exp-tags"><span class="tag blue">LLM Agents</span><span class="tag blue">GitHub Actions</span><span class="tag blue">Webhooks</span><span class="tag blue">Automation</span></div></div>
+        <div class="project-card blue reveal">
+        <div class="project-number">03 — AGENTIC AI</div>
+        <div class="project-title">Autonomous CI/CD Repair Agent</div>
+        <div class="project-subtitle">Personal Project · Jun 2026 – Present</div>
+      
+        <div style="margin:10px 0 8px;">
+          <div style="font-size:0.7rem;letter-spacing:0.08em;color:rgba(91,200,255,0.7);font-weight:600;margin-bottom:6px;">HOW IT WORKS</div>
+          <video controls muted playsinline style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:#000;">
+            <source src="assets/cicd-demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      
+        <div class="project-desc">End-to-end agentic pipeline: GitHub Actions test failures trigger a FastAPI webhook, which feeds failing logs to an LLM that generates a patch, applies it, reruns tests, and opens a fix PR automatically — a fully autonomous agent with no human in the loop. Currently extending with structured repository-context retrieval as a precursor to multi-agent orchestration.</div>
+        <div class="project-metric blue">63% relative improvement · 14% → 23% pass rate</div>
+        <div class="exp-tags"><span class="tag blue">LLM Agents</span><span class="tag blue">GitHub Actions</span><span class="tag blue">Webhooks</span><span class="tag blue">Automation</span></div>
+        <div style="margin-top:14px;">
+          <a href="https://github.com/RayirthDinesh/Self-Healing-Autonomous-DevOps-Agent" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:7px 18px;border-radius:6px;background:rgba(91,200,255,0.1);border:1px solid rgba(91,200,255,0.3);color:#5bc8ff;font-size:0.78rem;font-weight:600;letter-spacing:0.04em;text-decoration:none;">GitHub →</a>
+        </div>
+      </div>
       <!-- 04 — TRITONHUB -->
       <div class="project-card pink reveal">
         <div class="project-number">04 — FULL-STACK</div>
