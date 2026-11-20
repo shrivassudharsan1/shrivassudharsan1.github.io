@@ -222,14 +222,14 @@
     <div class="hero-grid-bg"></div>
     <div class="hero-glow"></div>
     <div class="hero-content">
-      <div class="hero-tag">AI Researcher & Engineer · UC San Diego '29</div>
+      <div class="hero-tag">AI Researcher & Engineer · UC San Diego '28</div>
       <h1>Building intelligent<br>systems that <em>learn</em></h1>
-      <p class="hero-sub">Sophomore studying Artificial Intelligence at UC San Diego (GPA 3.98), working across machine learning research, embedded inference, computer vision, and full-stack AI systems.</p>
+      <p class="hero-sub">Sophomore studying Artificial Intelligence at UC San Diego (GPA 3.98), working across machine learning research, robotics benchmarking, computer vision, embedded inference, and agentic AI systems.</p>
       <div class="hero-pills">
         <span class="pill green">Active Learning</span><span class="pill green">EMG / Biosignals</span>
         <span class="pill blue">Computer Vision</span><span class="pill blue">LLM Fine-Tuning</span>
         <span class="pill pink">RAG Systems</span><span class="pill pink">Edge Deployment</span>
-        <span class="pill pink">PyTorch</span><span class="pill pink">React.js + Flask</span>
+        <span class="pill blue">Robotics</span><span class="pill pink">PyTorch</span><span class="pill pink">React.js + Flask</span>
       </div>
       <div class="hero-cta">
         <button class="btn-primary" onclick="showPage('projects',null)">View Projects ↓</button>
@@ -249,14 +249,14 @@
         <div class="stat-item"><div class="stat-num">7+</div><div class="stat-label">Certifications across ML, AI & GPU computing</div></div>
       </div>
       <div class="about-text reveal">
-        <p>I'm a second-year <strong>Artificial Intelligence student at UC San Diego</strong>, working at the intersection of ML research, applied systems, and real-world deployment. From bioacoustic classification pipelines to EMG-based gesture interfaces, I care about AI that actually runs in the world — not just in notebooks.</p>
-        <p>My current research spans <strong>machine learning for bioacoustic species identification</strong> — including a new <strong>RAG-conditioned framework</strong> that retrieves acoustically similar exemplars to improve rare-species classification — at Engineers 4 Exploration, and <strong>EMG-based ASL gesture recognition</strong> for neurotechnology at Triton NeuroTech. Outside of research, I'm building an <strong>autonomous CI/CD repair agent</strong> that detects failing tests, generates and applies patches, and reruns pipelines with zero human intervention. I also mentor students on AI-driven projects through Curious Cardinals.</p>
-        <p>Before college I participated in ML research at the <strong>Cambridge Centre for International Research</strong> alongside Dr. Shadi Ghiasi, deployed a <strong>Raspberry Pi fire-detection system</strong> with a UC Irvine CS professor, and completed ML coursework through <strong>Stanford and Coursera</strong>.</p>
-        <p>Always looking for research collaborations and internship opportunities in ML systems, applied AI, and edge deployment.</p>
+        <p>I'm a second-year <strong>Artificial Intelligence student at UC San Diego</strong> who likes building machine learning systems that have to work outside a notebook. So far that has meant bird calls, muscle signals, satellite images, and robot benchmarks.</p>
+        <p>What connects my work is a focus on evaluation and real constraints: learning efficiently from limited labels, measuring how models behave under time and latency limits, and making sure results hold up beyond a demo. I do research at <strong>Hao AI Lab</strong>, where I co-authored a robotics benchmark (<strong>RoboClock</strong>, submitted to CVPR 2027), and at <strong>Engineers 4 Exploration</strong>, where I work on bioacoustic classification, including a <strong>RAG-conditioned framework</strong> for rare-species identification. I also write path-planning software for the <strong>Yonder Dynamics</strong> rover team and mentor students on AI projects through Curious Cardinals.</p>
+        <p>Along the way I built an <strong>autonomous CI/CD repair agent</strong> and worked on <strong>EMG-based ASL gesture recognition</strong> at Triton NeuroTech. Before college I participated in ML research at the <strong>Cambridge Centre for International Research</strong> alongside Dr. Shadi Ghiasi, deployed a <strong>Raspberry Pi fire-detection system</strong> with a UC Irvine CS professor, and completed ML coursework through <strong>Stanford and Coursera</strong>.</p>
+        <p>I'm looking for a Summer 2027 internship in applied ML, AI systems, or robotics, and I'm always open to research collaborations.</p>
       </div>
     </div>
   </div>
-  <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '29</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
+  <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '28</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
 </div>
 
 <!-- ══ EXPERIENCE ══ -->
@@ -265,21 +265,17 @@
     <div class="section-label">Experience</div>
     <h2 class="section-title">Where I've worked<br>& researched</h2>
     <div>
+      <div class="exp-item reveal"><div class="exp-date">Sep 2026 — Present</div><div><div class="exp-role">Research Contributor</div><div class="exp-org">Hao AI Lab, UC San Diego</div><div class="exp-desc">Co-authored RoboClock, a 60-task benchmark for time-aware robotic manipulation that evaluates 30+ methods, including vision-language-action models (submitted to CVPR 2027, under review). Ran physics simulations and evaluated model capability on the healthcare-domain tasks, using both VLAs and LLMs, as part of a team effort across the benchmark.</div><div class="exp-tags"><span class="tag">Robotics</span><span class="tag">Embodied AI</span><span class="tag">Benchmarking</span><span class="tag">VLA Models</span></div></div></div>
+      <div class="exp-item reveal"><div class="exp-date">Sep 2026 — Present</div><div><div class="exp-role">Software Team Member</div><div class="exp-org">Yonder Dynamics · UC San Diego</div><div class="exp-desc">Working on autonomous rover path planning, updating the decision-making algorithm to account for terrain elevation and waypoints. Built a pipeline that converts USGS 3DEP lidar elevation data into Webots simulation terrain for testing path planners. Designed a turn-aware waypoint-chain planner with a waypoint-repair and backtracking wrapper. In simulation (one terrain tile, placeholder rover limits), it cut turn angles at waypoints from 110–180° to 0–40° at +15–25% route length. Wrote ~72 automated tests for the planner and pipeline.</div><div class="exp-tags"><span class="tag">Path Planning</span><span class="tag">Webots</span><span class="tag">Lidar / Terrain</span><span class="tag">Simulation</span></div></div></div>
       <div class="exp-item reveal"><div class="exp-date">Jan 2026 — Present</div><div><div class="exp-role">Machine Learning Research — Acoustic Species ID</div><div class="exp-org">UC San Diego: Engineers 4 Exploration</div><div class="exp-desc">Building a machine learning pipeline for multi-label bioacoustic classification using BirdNET transformer embeddings with LightGBM, Random Forest, SVM, and MLP classifiers. Achieved ~90% precision on dominant species classes. Applying uncertainty-based active learning sampling to maximize model efficiency under limited annotation budgets across imbalanced long-tail distributions. Designed and evaluated a RAG-conditioned framework for NatureLM that retrieves acoustically similar exemplars via BirdNET/BEATs embeddings to improve rare-species classification accuracy, with statistically validated gains over baseline (McNemar's test, bootstrap CIs).</div><div class="exp-tags"><span class="tag">Machine Learning</span><span class="tag">BirdNET</span><span class="tag">LightGBM</span><span class="tag">RAG</span><span class="tag">Multi-label Classification</span></div>
       <div class="exp-links"><a class="exp-link" href="#" onclick="return showPage('projects',null)">Read paper →</a></div>
       </div></div>
-      <div class="exp-item reveal"><div class="exp-date">Jan 2026 — May 2026 </div><div><div class="exp-role">NeuroTech ML Research — EMG</div><div class="exp-org">Triton NeuroTech at UC San Diego</div><div class="exp-desc">Engineering EMG-based ASL gesture recognition models translating raw muscle biosignals into structured linguistic outputs. Extracted time-domain (RMS, MAV) and frequency-domain spectral features for robust multi-class classification. Achieved ~95% test accuracy with an optimized Random Forest classifier. Preparing pipeline for real-time edge deployment with low-latency inference.</div><div class="exp-tags"><span class="tag">EMG Signal Processing</span><span class="tag">ASL Recognition</span><span class="tag pink">Neurotechnology</span><span class="tag">Edge Deployment</span></div></div></div>
-      <div class="exp-item reveal"><div class="exp-date">Jun 2026 — Aug 2026</div><div><div class="exp-role">Autonomous CI/CD Repair Agent</div><div class="exp-org">Personal Project</div><div class="exp-desc">Architected an end-to-end agentic pipeline where GitHub Actions test failures trigger a FastAPI webhook server that feeds failing logs to an LLM, generates a patch, applies it, reruns tests, and opens a fix PR automatically — a fully autonomous agent with zero human in the loop. Improved automated fix success rate by 63% on SWE-bench-style test cases, raising the agent's pass rate from 14% to 23%. Currently extending with structured repository-context retrieval (file-tree parsing, import-graph traversal) as a precursor to embedding-based semantic retrieval and multi-agent orchestration.</div><div class="exp-tags"><span class="tag blue">LLM Agents</span><span class="tag blue">FastAPI</span><span class="tag blue">GitHub Actions</span><span class="tag blue">Agentic Workflows</span></div>
+      <div class="exp-item reveal"><div class="exp-date">Jan 2026 — May 2026 </div><div><div class="exp-role">NeuroTech ML Research — EMG</div><div class="exp-org">Triton NeuroTech at UC San Diego</div><div class="exp-desc">Engineered EMG-based ASL gesture recognition models translating raw muscle biosignals into structured linguistic outputs. Extracted time-domain (RMS, MAV) and frequency-domain spectral features for robust multi-class classification. Focused on preprocessing and training an optimized Random Forest classifier, achieving ~95% test accuracy.</div><div class="exp-tags"><span class="tag">EMG Signal Processing</span><span class="tag">ASL Recognition</span><span class="tag pink">Neurotechnology</span></div></div></div>
+      <div class="exp-item reveal"><div class="exp-date">Jun 2026 — Aug 2026</div><div><div class="exp-role">Autonomous CI/CD Repair Agent</div><div class="exp-org">Personal Project</div><div class="exp-desc">Architected an end-to-end agentic pipeline where GitHub Actions test failures trigger a FastAPI webhook server that feeds failing logs to an LLM, generates a patch, applies it, reruns tests, and opens a fix PR, fully automated from failure to PR. Improved the agent's pass rate from 14% to 23% (a 63% relative gain) on a 57-instance SWE-bench subset. Extended the system with structured repository-context retrieval (file-tree parsing, import-graph traversal).</div><div class="exp-tags"><span class="tag blue">LLM Agents</span><span class="tag blue">FastAPI</span><span class="tag blue">GitHub Actions</span><span class="tag blue">Agentic Workflows</span></div>
       <div class="exp-links"><a class="exp-link blue" href="https://github.com/RayirthDinesh/Self-Healing-Autonomous-DevOps-Agent" target="_blank" rel="noopener noreferrer">GitHub →</a></div>
       </div></div>
-      <div class="exp-item reveal"><div class="exp-date">Mar 2026 – May 2026</div><div><div class="exp-role">Computer Vision Intern</div><div class="exp-org">Intuizi · Remote</div><div class="exp-desc">Trained a YOLO-based satellite imagery detection model achieving 92.5% accuracy on swimming pool identification for large-scale geospatial analysis. Improved model robustness by annotating ambiguous visual edge cases to reduce false positive rate in production inference.</div><div class="exp-tags"><span class="tag blue">YOLO</span><span class="tag blue">Computer Vision</span><span class="tag blue">Satellite Imagery</span><span class="tag blue">Geospatial ML</span></div></div></div>
+      <div class="exp-item reveal"><div class="exp-date">Mar 2026 – May 2026</div><div><div class="exp-role">Computer Vision Intern</div><div class="exp-org">Intuizi · Remote</div><div class="exp-desc">Trained a YOLO satellite-imagery detector for swimming pool identification, reaching 0.84 mAP@50. Built a lightweight detection pipeline (3M parameters, 6.3 MB weights) running at ~51 ms per image on CPU. Labeled and reviewed ambiguous edge cases (e.g., blue-roof vs. pool lookalikes), improving label consistency by 30% for the detection dataset.</div><div class="exp-tags"><span class="tag blue">YOLO</span><span class="tag blue">Computer Vision</span><span class="tag blue">Satellite Imagery</span><span class="tag blue">Geospatial ML</span></div></div></div>
       <div class="exp-item reveal"><div class="exp-date">Jan 2026 — Present</div><div><div class="exp-role">AI Mentor</div><div class="exp-org">Curious Cardinals · Remote</div><div class="exp-desc">Mentoring students on AI-driven coding projects from concept to working ML pipeline. Teaching ML fundamentals, model design, and debugging. Helping students translate abstract ideas into functional systems through iteration and experimentation.</div><div class="exp-tags"><span class="tag grey">AI Education</span><span class="tag grey">Mentoring</span><span class="tag grey">ML Systems</span></div></div></div>
-      <div class="exp-item reveal"><div class="exp-date">Dec 2025 — Jan 2026</div><div><div class="exp-role">Machine Learning Researcher</div><div class="exp-org">RapidFire AI · Remote</div><div class="exp-desc">Fine-tuned GPT-2 with LoRA adapters via SFT for customer-support generation (ROUGE-L=0.056, eval loss=1.15). Built a separate RAG pipeline on the FiQA financial dataset, running a grid search over chunking strategy and reranking configuration to optimize retrieval quality, achieving MRR=65.5%. Designed parallelized hyperparameter search with real-time metric visualization and early stopping.</div><div class="exp-tags"><span class="tag">LoRA / SFT</span><span class="tag">RAG</span><span class="tag">GPT-2</span><span class="tag">LLM Fine-Tuning</span></div>
-      <div class="exp-links">
-        <a class="exp-link" href="https://colab.research.google.com/drive/1nwNZhq_ZzirzEojIZTnw1bsxYJ2Ygajz?usp=sharing" target="_blank" rel="noopener noreferrer">SFT Notebook →</a>
-        <a class="exp-link" href="https://colab.research.google.com/drive/1dZqV2osju1Q2xMQiQszst7eECwqrou36?usp=sharing" target="_blank" rel="noopener noreferrer">RAG Notebook →</a>
-      </div>
-      </div></div>
       <div class="exp-item reveal"><div class="exp-date">Jun – Aug 2024</div><div><div class="exp-role">Artificial Intelligence Intern</div><div class="exp-org">Photon Insights · Hybrid</div><div class="exp-desc">Conducted interview-driven user research and NLP-based sentiment analysis to identify product gaps. Recommended integration of a proactive AI forecasting feature. Benchmarked ML algorithms across multi-year financial time-series, competitor metrics, and news-driven datasets.</div><div class="exp-tags"><span class="tag">NLP</span><span class="tag">Sentiment Analysis</span><span class="tag">Financial ML</span></div></div></div>
       <div class="exp-item reveal"><div class="exp-date">May – Aug 2024</div><div><div class="exp-role">Embedded Systems Research</div><div class="exp-org">Pioneer Academics × UC Irvine CS Faculty</div><div class="exp-desc">Collaborated with a UC Irvine CS professor to engineer a smart fire-detection camera system. Trained YOLO-based networks achieving 90.2% accuracy on fire and 85.7% on smoke. Deployed end-to-end on Raspberry Pi with on-device inference and IoT-based local alert transmission pipeline.</div><div class="exp-tags"><span class="tag">Embedded Inference</span><span class="tag">Raspberry Pi</span><span class="tag">IoT</span><span class="tag">YOLO</span></div>
       <div class="exp-links"><a class="exp-link grey" href="#" onclick="return showPage('projects',null)">Read paper →</a></div>
@@ -289,7 +285,7 @@
       </div></div>
     </div>
   </div>
-  <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '29</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
+  <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '28</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
 </div>
 
 <!-- ══ PROJECTS ══ -->
@@ -324,7 +320,7 @@
       </div>
 
       <!-- 02 — LLM SYSTEMS -->
-      <div class="project-card blue reveal"><div class="project-number">02 — LLM SYSTEMS</div><div class="project-title">LLM Fine-Tuning & RAG Pipeline</div><div class="project-subtitle">RapidFire AI · Dec 2025 – Jan 2026</div><div class="project-desc">Fine-tuned GPT-2 with LoRA adapters via SFT for customer-support generation. Separately, built a RAG pipeline on the FiQA financial QA dataset with optimized chunking, overlap, and reranking, evaluated via Precision, Recall, F1, NDCG@5, and MRR. Parallelized hyperparameter search with early stopping across both SFT and RAG experiments.</div><div class="project-metric blue">ROUGE-L=0.056 · eval loss=1.15 · MRR=65.5%</div><div class="exp-tags"><span class="tag blue">GPT-2</span><span class="tag blue">LoRA / SFT</span><span class="tag blue">RAG</span><span class="tag blue">FiQA</span><span class="tag blue">PyTorch</span></div>
+      <div class="project-card blue reveal"><div class="project-number">02 — LLM SYSTEMS</div><div class="project-title">LLM Fine-Tuning & RAG Pipeline</div><div class="project-subtitle">RapidFire AI Certification Project · Dec 2025 – Jan 2026</div><div class="project-desc">Fine-tuned GPT-2 with LoRA adapters via SFT for customer-support generation. Separately, built a RAG pipeline on the FiQA financial QA dataset with optimized chunking, overlap, and reranking, evaluated via Precision, Recall, F1, NDCG@5, and MRR. Parallelized hyperparameter search with early stopping across both SFT and RAG experiments.</div><div class="project-metric blue">ROUGE-L=0.056 · eval loss=1.15 · MRR=65.5%</div><div class="exp-tags"><span class="tag blue">GPT-2</span><span class="tag blue">LoRA / SFT</span><span class="tag blue">RAG</span><span class="tag blue">FiQA</span><span class="tag blue">PyTorch</span></div>
       <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
         <a href="https://colab.research.google.com/drive/1nwNZhq_ZzirzEojIZTnw1bsxYJ2Ygajz?usp=sharing" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:7px 18px;border-radius:6px;background:rgba(91,200,255,0.1);border:1px solid rgba(91,200,255,0.3);color:#5bc8ff;font-size:0.78rem;font-weight:600;letter-spacing:0.04em;text-decoration:none;">SFT Notebook →</a>
         <a href="https://colab.research.google.com/drive/1dZqV2osju1Q2xMQiQszst7eECwqrou36?usp=sharing" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:7px 18px;border-radius:6px;background:rgba(91,200,255,0.1);border:1px solid rgba(91,200,255,0.3);color:#5bc8ff;font-size:0.78rem;font-weight:600;letter-spacing:0.04em;text-decoration:none;">RAG Notebook →</a>
@@ -336,7 +332,7 @@
   <div class="project-number">03 — AGENTIC AI</div>
   <div class="project-title">Autonomous CI/CD Repair Agent</div>
   <div class="project-subtitle">Personal Project · Jun 2026 – Aug. 2026 </div>
-  <div class="project-desc">End-to-end agentic pipeline: GitHub Actions test failures trigger a FastAPI webhook, which feeds failing logs to an LLM that generates a patch, applies it, reruns tests, and opens a fix PR automatically — a fully autonomous agent with no human in the loop. Currently extending with structured repository-context retrieval as a precursor to multi-agent orchestration.</div>
+  <div class="project-desc">End-to-end agentic pipeline: GitHub Actions test failures trigger a FastAPI webhook, which feeds failing logs to an LLM that generates a patch, applies it, reruns tests, and opens a fix PR, fully automated from failure to PR. Evaluated on a 57-instance SWE-bench subset and extended with structured repository-context retrieval.</div>
   <div class="project-metric blue">63% relative improvement · 14% → 23% pass rate</div>
   <div class="exp-tags"><span class="tag blue">LLM Agents</span><span class="tag blue">GitHub Actions</span><span class="tag blue">Webhooks</span><span class="tag blue">Automation</span></div>
   <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
@@ -426,7 +422,7 @@
       <h2 class="section-title" style="font-size:clamp(1.6rem,3vw,2.1rem);margin-bottom:2rem;">Written work</h2>
       <div class="paper-grid">
         <div class="paper-card reveal">
-          <div class="paper-venue">NeurIPS 2026 formatted draft · Engineers 4 Exploration</div>
+          <div class="paper-venue">Working draft · targeting ICML 2027 · Engineers 4 Exploration</div>
           <div class="paper-title">RAB for NatureLM: Retrieval-Augmented Bioacoustic Classification</div>
           <div class="paper-desc">Introduces a RAG layer for NatureLM's audio-LLM bioacoustic classifier, comparing BirdNET and BEATs-based retrieval across 770 clips of 77 North American bird species. Finds retrieval source matters more than retrieval mechanism, accuracy gains plateau near k≈7 candidates, and the model is roughly 5x more sensitive to retrieved text context than to audio.</div>
           <a class="paper-link" href="assets/RABForNatureLM.pdf" target="_blank" rel="noopener noreferrer">Read paper →</a>
@@ -447,7 +443,7 @@
     </div>
 
   </div>
-  <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '29</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
+  <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '28</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
 </div>
 <!-- ══ SKILLS ══ -->
 <div id="page-skills" class="page">
@@ -457,7 +453,7 @@
 
     <!-- Education -->
     <div style="margin-bottom:3rem;">
-      <div class="exp-item reveal"><div class="exp-date">Aug 2025 – Jun 2029</div><div><div class="exp-role">B.S. Artificial Intelligence · GPA 3.98</div><div class="exp-org">UC San Diego</div><div class="exp-desc">Coursework: Machine Learning, Discrete Mathematics, Calculus, Python, Data Structures</div></div></div>
+      <div class="exp-item reveal"><div class="exp-date">Aug 2025 – Jun 2028</div><div><div class="exp-role">B.S. Artificial Intelligence · GPA 3.98</div><div class="exp-org">UC San Diego</div><div class="exp-desc">Coursework: Machine Learning, Discrete Mathematics, Calculus, Python, Data Structures</div></div></div>
       <div class="exp-item reveal"><div class="exp-date">Jun – Aug 2024</div><div><div class="exp-role">Summer Program in Neuroscience</div><div class="exp-org">UCLA</div><div class="exp-desc">Studied brain anatomy and neurological disease with faculty mentorship. Explored AI-assisted stroke detection — directly shaped interest in neurotechnology.</div></div></div>
     </div>
 
@@ -468,23 +464,23 @@
       <div class="cert-card highlight reveal"><div class="cert-icon">🤖</div><div><div class="cert-name">SFT Certification</div><div class="cert-issuer">RapidFire AI</div><div class="cert-date">Jan 2026 · Supervised Fine-Tuning</div></div></div>
       <div class="cert-card highlight reveal"><div class="cert-icon">🔍</div><div><div class="cert-name">RAG Certification</div><div class="cert-issuer">RapidFire AI</div><div class="cert-date">Jan 2026 · Retrieval-Augmented Generation</div></div></div>
       <div class="cert-card highlight reveal"><div class="cert-icon">⚡</div><div><div class="cert-name">AMD ROCm Certification</div><div class="cert-issuer">AMD</div><div class="cert-date">2026 · GPU-Accelerated Computing</div></div></div>
-      <div class="cert-card highlight reveal"><div class="cert-icon">🎓</div><div><div class="cert-name">Machine Learning Specialization</div><div class="cert-issuer">Stanford University</div><div class="cert-date">Aug 2023 · ID: TMU42NJ9XKQJ</div></div></div>
-      <div class="cert-card reveal"><div class="cert-icon">📊</div><div><div class="cert-name">Supervised ML: Regression & Classification</div><div class="cert-issuer">Coursera</div><div class="cert-date">May 2023 · ID: H43JT6Y7F5SM</div></div></div>
-      <div class="cert-card reveal"><div class="cert-icon">🧠</div><div><div class="cert-name">Advanced Learning Algorithms</div><div class="cert-issuer">Coursera</div><div class="cert-date">Jul 2023 · ID: YRDLUKRXXJ6U</div></div></div>
-      <div class="cert-card reveal"><div class="cert-icon">🔄</div><div><div class="cert-name">Unsupervised Learning, Recommenders & RL</div><div class="cert-issuer">Coursera</div><div class="cert-date">Aug 2023 · ID: H43JT6Y7F5SM</div></div></div>
+      <div class="cert-card highlight reveal"><div class="cert-icon">🎓</div><div><div class="cert-name">Machine Learning Specialization</div><div class="cert-issuer">Stanford University</div><div class="cert-date">Aug 2023</div></div></div>
+      <div class="cert-card reveal"><div class="cert-icon">📊</div><div><div class="cert-name">Supervised ML: Regression & Classification</div><div class="cert-issuer">Coursera</div><div class="cert-date">May 2023</div></div></div>
+      <div class="cert-card reveal"><div class="cert-icon">🧠</div><div><div class="cert-name">Advanced Learning Algorithms</div><div class="cert-issuer">Coursera</div><div class="cert-date">Jul 2023</div></div></div>
+      <div class="cert-card reveal"><div class="cert-icon">🔄</div><div><div class="cert-name">Unsupervised Learning, Recommenders & RL</div><div class="cert-issuer">Coursera</div><div class="cert-date">Aug 2023</div></div></div>
     </div>
 
     <!-- Technical Skills -->
     <div class="section-label" style="margin-bottom:1rem; margin-top:1rem;">Technical Skills</div>
     <div class="skills-grid">
-      <div class="skill-group reveal"><div class="skill-group-title">Languages</div><div class="skill-items"><span class="skill-item">Python</span><span class="skill-item">C++</span><span class="skill-item">C</span><span class="skill-item">Java</span><span class="skill-item">TypeScript</span><span class="skill-item">JavaScript</span><span class="skill-item">HTML/CSS</span></div></div>
+      <div class="skill-group reveal"><div class="skill-group-title">Languages</div><div class="skill-items"><span class="skill-item">Python</span><span class="skill-item">C++</span><span class="skill-item">C</span><span class="skill-item">Java</span><span class="skill-item">JavaScript</span><span class="skill-item">HTML/CSS</span></div></div>
       <div class="skill-group reveal"><div class="skill-group-title">ML / Deep Learning</div><div class="skill-items"><span class="skill-item">PyTorch</span><span class="skill-item">TensorFlow</span><span class="skill-item">Scikit-learn</span><span class="skill-item">LightGBM</span><span class="skill-item">OpenCV</span><span class="skill-item">YOLO</span><span class="skill-item">BirdNET</span></div></div>
       <div class="skill-group reveal"><div class="skill-group-title">AI Techniques</div><div class="skill-items"><span class="skill-item">Active Learning</span><span class="skill-item">RAG</span><span class="skill-item">LoRA / SFT</span><span class="skill-item">Agentic Workflows</span><span class="skill-item">EMG Signal Processing</span><span class="skill-item">Embedded Inference</span><span class="skill-item">Edge Deployment</span><span class="skill-item">Multimodal AI</span></div></div>
       <div class="skill-group reveal"><div class="skill-group-title">Web & Systems</div><div class="skill-items"><span class="skill-item">React.js</span><span class="skill-item">Flask</span><span class="skill-item">FastAPI</span><span class="skill-item">REST APIs</span><span class="skill-item">GitHub Actions</span><span class="skill-item">AMD ROCm</span><span class="skill-item">Supabase</span><span class="skill-item">Raspberry Pi</span><span class="skill-item">Chrome Extensions</span></div></div>
       <div class="skill-group reveal"><div class="skill-group-title">Data & Tools</div><div class="skill-items"><span class="skill-item">NumPy</span><span class="skill-item">Pandas</span><span class="skill-item">Matplotlib</span><span class="skill-item">Git</span><span class="skill-item">SQL</span></div></div>
     </div>
   </div>
-  <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '29</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
+  <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '28</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
 </div>
 
 <!-- ══ BEYOND ══ -->
@@ -502,7 +498,7 @@
       <div class="beyond-card reveal"><div class="beyond-icon">📜</div><div class="beyond-title">Languages</div><div class="beyond-sub">English (native) · Sanskrit (working proficiency)</div><div class="beyond-desc">Native fluency in English. Working proficiency in Sanskrit — one of the world's oldest structured languages with deep connections to formal grammar and computational linguistics.</div></div>
     </div>
   </div>
-  <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '29</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
+  <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '28</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
 </div>
 
 <!-- ══ CONTACT ══ -->
@@ -533,13 +529,13 @@
       </div>
       <div class="contact-note reveal">
         <div class="contact-note-title">What I'm looking for</div>
-        <p>I'm currently a sophomore at UC San Diego and actively seeking <strong style="color:var(--text);">summer 2027 internships</strong> in ML engineering, AI research, or applied data science roles.</p>
+        <p>I'm currently a sophomore at UC San Diego and actively seeking <strong style="color:var(--text);">summer 2027 internships</strong> in ML engineering, AI research, robotics, or applied data science roles.</p>
         <p>I'm especially interested in teams working on <strong style="color:var(--text);">real-world ML deployment</strong>, <strong style="color:var(--text);">multimodal systems</strong>, <strong style="color:var(--text);">edge AI</strong>, or <strong style="color:var(--text);">biosignal processing</strong>.</p>
         <p>For research collaborations, I'm open to conversations at any stage — from early ideas to active projects looking for a contributor.</p>
       </div>
     </div>
   </div>
-  <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '29</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
+  <footer><div class="footer-left">© 2026 Shrivas Sudharsan · UCSD AI '28</div><div class="footer-links"><a href="https://www.linkedin.com/in/shrivas-sudharsan-a20398255" target="_blank">LinkedIn</a><a href="https://github.com/shrivassudharsan1" target="_blank">GitHub</a><a href="mailto:sudharsan.shrivas@gmail.com">Email</a></div></footer>
 </div>
 
 <script>
